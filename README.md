@@ -13,7 +13,7 @@ No installation just make sure you have `python3` and run it.
 
 ## Screenshot
 
-![Screenshot of a casual use of the script. Please inform me if the image link is broken](https://0x0.st/sDD9.png)
+![Screenshot of a casual use of the script. Please inform me if the image link is broken](https://0x0.st/sDkN.png)
 
 ## But why ?
 
