@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 """Alone-chat.py: Express yourself without hurting anyone"""
 
-import sys
+import os
 from datetime import datetime
 
 __author__ = "Tom Celestin"
@@ -10,6 +10,7 @@ __copyright__ = "Copyright 2018, Planet Earth"
 
 def print_welcome():
     """Display welcome message."""
+    os.system('clear')
     welcome = """
     Welcome to the
 
