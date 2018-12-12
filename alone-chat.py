@@ -12,6 +12,7 @@ def print_welcome():
     """Display welcome message."""
     os.system('clear')
     welcome = """
+=================================================================================    
     Welcome to the
 
    mm   \"\"#                                  mmm  #               m
@@ -21,6 +22,7 @@ def print_welcome():
  #    #   \"mm  \"#m#\"  #   #  \"#mm\"          \"mmm\" #   #  \"mm\"#    \"mm
 
     You can express yourself without hurting anyone
+=================================================================================
     """
     print(welcome)
 
@@ -31,15 +33,32 @@ def ask_username():
     return username
 
 
+def get_time():
+    """Get current time formatted."""
+    i = datetime.now()
+    date_string = i.strftime('%H:%M:%S ')
+    return date_string
+
+
+def system_message(username, joins):
+    """Displays join and quit messages."""
+    message = ""
+    status = " \033[91mhas quit\033[0m"
+    if joins:
+        message += "\n"
+        status =  " \033[92mhas joined\033[0m"
+    message += get_time() +  "[\033[93msystem\033[0m]" + " > " + username + status
+    print(message)
+
+
 def interface(username):
     """Display prompt and manage imputs."""
+    system_message(username, True)
     formatted_username = "[\033[94m" + username + "\033[0m]"
     command = ""
     while command != "/quit" :
-        i = datetime.now()
-        date_string = i.strftime('%H:%M:%S ')
-        command = input(date_string + formatted_username + " > ")
-    print(username + " \033[91mhas quit")
+        command = input(get_time() + formatted_username + " > ")
+    system_message(username, False)
 
 
 def main():
