@@ -17,4 +17,6 @@ No installation just make sure you have `python3` and run it.
 
 ## But why ?
 
-I had free time, don't judge me
+Had the idea after visiting [rubberduckdebugging.com](https://rubberduckdebugging.com)
+
+Also I had free time, don't judge me.
