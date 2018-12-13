@@ -51,18 +51,31 @@ def system_message(username, joins):
     print(message)
 
 
+def save_logs(logs):
+    """Save logs array in a file."""
+    filename = get_time() + "alone-chat_logs.txt"
+    file = open(filename,"w") 
+    for message in logs:
+        file.write(message) 
+    file.close()
+
+
 def interface(username):
     """Display prompt and manage imputs."""
     system_message(username, True)
     formatted_username = "[\033[94m" + username + "\033[0m]"
-    command = ""
-    while command != "/quit" :
-        command = input(get_time() + formatted_username + " > ")
+    message = ""
+    logs = []
+    while message != "/quit" and message != "/record":
+        message = input(get_time() + formatted_username + " > ")
+        logs.append(message)
+    if message == "/record":
+        save_logs(logs)
     system_message(username, False)
 
 
 def main():
-    """The beginning of everything"""
+    """The beginning of everything."""
     print_welcome()
     username = ask_username()
     interface(username)
