@@ -20,7 +20,3 @@ No installation just make sure you have `python3` and run it.
 Had the idea after visiting [rubberduckdebugging.com](https://rubberduckdebugging.com)
 
 Also I had free time, don't judge me.
-
-## Todo
-
-- Add a `/export` command, to save the conversation in a file if you ranted a lot
