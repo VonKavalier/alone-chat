@@ -40,6 +40,14 @@ def get_time():
     return date_string
 
 
+def message_as(username):
+    "Format prompt according to username."
+    formatting = "[\033[94m" + username + "\033[0m] > " 
+    if username == "system":
+        formatting = "[\033[93msystem\033[0m] > "
+    return get_time() + formatting
+
+
 def system_message(username, joins):
     """Displays join and quit messages."""
     message = ""
@@ -47,7 +55,7 @@ def system_message(username, joins):
     if joins:
         message += "\n"
         status =  " \033[92mhas joined\033[0m"
-    message += get_time() +  "[\033[93msystem\033[0m]" + " > " + username + status
+    message += message_as("system") + username + status
     print(message)
 
 
@@ -56,20 +64,34 @@ def save_logs(logs):
     filename = get_time() + "alone-chat_logs.txt"
     file = open(filename,"w") 
     for message in logs:
-        file.write(message) 
+        file.write(message+"\n") 
     file.close()
+
+
+def read_command(command):
+    """Return value depending on the command."""
+    if command.startswith("/"):
+        if command == "/help" or command == "/?":
+            print(message_as("system") + "/export : Export messages from current conversation and quit")
+            print(message_as("system") + "/help   : Display this help")
+            print(message_as("system") + "/quit   : Quit Alone-Chat")
+            return 0
+        elif command == "/export":
+            return 1
+    else:
+        return 0
 
 
 def interface(username):
     """Display prompt and manage imputs."""
     system_message(username, True)
-    formatted_username = "[\033[94m" + username + "\033[0m]"
+    formatted_username = message_as(username)
     message = ""
     logs = []
-    while message != "/quit" and message != "/record":
-        message = input(get_time() + formatted_username + " > ")
+    while read_command(message) == 0:
+        message = input(formatted_username)
         logs.append(message)
-    if message == "/record":
+    if read_command(message) == 1:
         save_logs(logs)
     system_message(username, False)
 

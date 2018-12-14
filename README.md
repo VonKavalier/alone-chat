@@ -9,6 +9,7 @@ No installation just make sure you have `python3` and run it.
 
 1. Set a username
 2. Start chatting with yourself and say everything that comes to your mind
+3. Get help on commands with `/help`
 3. Quit with `/quit`
 
 ## Screenshot
