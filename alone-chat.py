@@ -33,10 +33,10 @@ def ask_username():
     return username
 
 
-def get_time():
+def get_time(format):
     """Get current time formatted."""
     i = datetime.now()
-    date_string = i.strftime('%H:%M:%S ')
+    date_string = i.strftime(format)
     return date_string
 
 
@@ -45,7 +45,7 @@ def message_as(username):
     formatting = "[\033[94m" + username + "\033[0m] > " 
     if username == "system":
         formatting = "[\033[93msystem\033[0m] > "
-    return get_time() + formatting
+    return get_time('%H:%M:%S') + " " + formatting
 
 
 def system_message(username, joins):
@@ -61,7 +61,8 @@ def system_message(username, joins):
 
 def save_logs(logs):
     """Save logs array in a file."""
-    filename = get_time() + "alone-chat_logs.txt"
+    date_string = get_time('%y%m%d%H%M%S')
+    filename = date_string + "_alone-chat_logs.txt"
     file = open(filename,"w") 
     for message in logs:
         file.write(message+"\n") 
