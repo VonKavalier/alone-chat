@@ -1,5 +1,5 @@
 # alone-chat
-Express yourself without hurting anyone 🗣
+Express yourself without hurting anyone else 🗣
 
 ## Installation
 
