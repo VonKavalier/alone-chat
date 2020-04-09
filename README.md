@@ -14,7 +14,7 @@ No installation just make sure you have `python3` and run it.
 
 ## Screenshot
 
-![Screenshot of a casual use of the script. Please inform me if the image link is broken](https://0x0.st/sDkN.png)
+![Screenshot of a casual use of the script. Please inform me if the image link is broken](https://tilde.town/~von/assets/media/alone-chat.png)
 
 ## But why ?
 
